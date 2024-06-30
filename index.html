@@ -20,30 +20,480 @@
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
   </head>
-  <body>
-    <!-- Start your project here-->
-    <div class="container">
-      <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-        <div class="text-center">
-          <img
-            class="mb-4"
-            src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-            style="width: 250px; height: 90px"
-          />
-          <h5 class="mb-3">Thank you for using our product. We're glad you're with us.</h5>
-          <p class="mb-3">MDB Team</p>
-          <a
-            class="btn btn-primary btn-lg"
-            data-mdb-ripple-init
-            href="https://mdbootstrap.com/docs/standard/getting-started/"
-            target="_blank"
-            role="button"
-            >Start MDB tutorial</a
-          >
+  <body style="padding: 10% 10%;">
+      <div class="container-fluid my-5" style="border: 2px solid #3B71CA; border-radius: 12px;">
+    
+        <div class="row d-flex justify-content-start">
+    
+          <div class="col-auto" style="padding: 7px 0px;">
+            <!-- Tabs navs -->
+    <ul class="nav nav-tabs mb-3" id="ex-with-icons" role="tablist" style="border-radius: 12px;">
+      <li class="nav-item" role="presentation">
+        <a data-mdb-tab-init class="nav-link active" id="ex-with-icons-tab-1" href="#ex-with-icons-tabs-1" role="tab"
+          aria-controls="ex-with-icons-tabs-1" aria-selected="true"><i class="fas fa-chart-pie fa-fw me-2"></i>Historical Data</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-2" href="#ex-with-icons-tabs-2" role="tab"
+          aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-chart-line fa-fw me-2"></i>Weather Forecast</a>
+      </li>
+    </ul>
+    <!-- Tabs navs -->
+
+    <!-- Tabs content -->
+    <div class="tab-content" id="ex-with-icons-content">
+      <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
+        <div class="container-fluid my-5">
+        
+          <div class="row justify-content-start mx-5">
+      
+            <div class="col-fluid">
+              <h2>Fetch Hostorical Data</h2>
+
+              <div class="container-fluid my-5">
+              
+                  <div class="row d-flex justify-content-start">
+              
+                    <div class="col-fluid">
+                      <h4>Input Location</h4>
+                      <div class="row g-2">
+                        <div class="col">
+                          <!-- Latitude input -->
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="input-lat" class="form-control"/>
+                            <label class="form-label" for="input-lat">Input Latitude</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <!-- Longitude input -->
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="input-long" class="form-control"/>
+                            <label class="form-label" for="input-long">Input Longitude</label>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="col-auto mt-4">OR</p>
+                      <div class="col-auto">
+                        <!-- Search input -->
+                        <div data-mdb-input-init class="form-outline">
+                          <input type="text" id="search-loc" class="form-control"/>
+                          <label class="form-label" for="search-loc">Search Location</label>
+                        </div>
+                      </div>
+
+                    </div>
+              
+                  </div>
+              
+                </div>
+                  <div class="container-fluid my-5">
+                
+                    <div class="row d-flex justify-content-start">
+                
+                      <div class="col-fluid">
+                          <h4>Input Time Interval</h4>
+                          <div class="row g-2">
+                            <div class="col">
+                              <!-- Start Date input -->
+                              <div data-mdb-input-init class="form-outline">
+                                <input type="date" id="start-date" class="form-control date-picker" data-mdb-toggle="datepicker"/>
+                                <label class="form-label" for="start-date">Input Start Date</label>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <!-- End Date input -->
+                              <div data-mdb-input-init class="form-outline">
+                                <input type="date" id="end-date" class="form-control date-picker" data-mdb-toggle="datepicker"/>
+                                <label class="form-label" for="end-date">Input End Date</label>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                
+                    </div>
+                
+                  </div>
+                  <div class="container-fluid my-5">
+                
+                    <div class="row d-flex justify-content-start">
+                
+                      <div class="col-lg-12 col-md-10">
+                          <h4>Select Daily Weather Variables</h4>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="precipitation" checked/>
+                              <label class="form-check-label" for="precipitation">Precipitation</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="surface-pressure" checked/>
+                              <label class="form-check-label" for="surface-pressure">Surface Pressure</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="wind-speed" checked/>
+                              <label class="form-check-label" for="wind-speed">Wind Speed</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="wind-dir" checked/>
+                              <label class="form-check-label" for="wind-dir">Wind Direction</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="rel-hum" checked/>
+                              <label class="form-check-label" for="rel-hum">Relative Humidity</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="min-temp" checked/>
+                              <label class="form-check-label" for="min-temp">Minimum Temperature</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="max-temp" checked/>
+                              <label class="form-check-label" for="max-temp">Maximum Temperature</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="surf-sol-irr" checked/>
+                              <label class="form-check-label" for="surf-sol-irr">Surface Net Solar Irradiation</label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="top-sol-irr" checked/>
+                              <label class="form-check-label" for="top-sol-irr">Top Net Solar Irradiation</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="surf-therm-irr" checked/>
+                              <label class="form-check-label" for="surf-therm-irr">Surface Net Thermal Irradiation</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp1" checked/>
+                              <label class="form-check-label" for="soil-temp1">Soil Temperature (0-10cm)</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp2" checked/>
+                              <label class="form-check-label" for="soil-temp2">Soil Temperature (11-25cm)</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp3" checked/>
+                              <label class="form-check-label" for="soil-temp3">Soil Temperature (26-50cm)</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp4" checked/>
+                              <label class="form-check-label" for="soil-temp4">Soil Temperature (50cm and above)</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="heat-flux" checked/>
+                              <label class="form-check-label" for="heat-flux">Sensible Heat Flux</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="pm2.5" checked/>
+                              <label class="form-check-label" for="pm2.5">P.M<sub>2.5</sub></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="pm10" checked/>
+                              <label class="form-check-label" for="pm10">P.M<sub>10</sub></label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="co2" checked/>
+                              <label class="form-check-label" for="co2">CO<sub>2</sub></label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="co" checked/>
+                              <label class="form-check-label" for="co">CO</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="so2" checked/>
+                              <label class="form-check-label" for="so2">SO<sub>2</sub></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-auto my-5">
+                          <button data-mdb-ripple-init type="submit" class="btn btn-primary">Make Request</button>
+                        </div>
+                      </div>
+                
+                    </div>
+                
+                  </div>
+            </div>
+        
+            </div>
+        
         </div>
       </div>
+      <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
+        <div class="container-fluid my-5">
+        
+          <div class="row justify-content-start mx-5">
+      
+            <div class="col-fluid">
+              <h2>Fetch Weather Forecast [METEO-FRANCE]</h2>
+
+              <div class="container-fluid my-5">
+              
+                  <div class="row d-flex justify-content-start">
+              
+                    <div class="col-fluid">
+                      <h4>Input Location</h4>
+                      <div class="row g-2">
+                        <div class="col">
+                          <!-- Latitude input -->
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="input-lat" class="form-control"/>
+                            <label class="form-label" for="input-lat">Input Latitude</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <!-- Longitude input -->
+                          <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="input-long" class="form-control"/>
+                            <label class="form-label" for="input-long">Input Longitude</label>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="col-auto mt-4">OR</p>
+                      <div class="col-auto">
+                        <!-- Search input -->
+                        <div data-mdb-input-init class="form-outline">
+                          <input type="text" id="search-loc" class="form-control"/>
+                          <label class="form-label" for="search-loc">Search Location</label>
+                        </div>
+                      </div>
+
+                    </div>
+              
+                  </div>
+              
+                </div>
+                  <div class="container-fluid my-5">
+                
+                    <div class="row d-flex justify-content-start">
+                
+                      <div class="col-fluid">
+                          <h4>Input Time Interval</h4>
+                          <div class="row g-2">
+                            <div class="col">
+                              <!-- Start Date input -->
+                              <div data-mdb-input-init class="form-outline">
+                                <input type="date" id="start-date" class="form-control date-picker" data-mdb-toggle="datepicker"/>
+                                <label class="form-label" for="start-date">Input Start Date</label>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <!-- End Date input -->
+                              <div data-mdb-input-init class="form-outline">
+                                <input type="date" id="end-date" class="form-control date-picker" data-mdb-toggle="datepicker"/>
+                                <label class="form-label" for="end-date">Input End Date</label>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                
+                    </div>
+                
+                  </div>
+                  <div class="container-fluid my-5">
+                
+                    <div class="row d-flex justify-content-start">
+                
+                      <div class="col-lg-12 col-md-10">
+                          <h4>Select Daily Weather Variables</h4>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="precipitation" checked/>
+                              <label class="form-check-label" for="precipitation">Precipitation</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="surface-pressure" checked/>
+                              <label class="form-check-label" for="surface-pressure">Surface Pressure</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="wind-speed" checked/>
+                              <label class="form-check-label" for="wind-speed">Wind Speed</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="wind-dir" checked/>
+                              <label class="form-check-label" for="wind-dir">Wind Direction</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="rel-hum" checked/>
+                              <label class="form-check-label" for="rel-hum">Relative Humidity</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="min-temp" checked/>
+                              <label class="form-check-label" for="min-temp">Minimum Temperature</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="max-temp" checked/>
+                              <label class="form-check-label" for="max-temp">Maximum Temperature</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="surf-sol-irr" checked/>
+                              <label class="form-check-label" for="surf-sol-irr">Surface Net Solar Irradiation</label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="top-sol-irr" checked/>
+                              <label class="form-check-label" for="top-sol-irr">Top Net Solar Irradiation</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="surf-therm-irr" checked/>
+                              <label class="form-check-label" for="surf-therm-irr">Surface Net Thermal Irradiation</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp1" checked/>
+                              <label class="form-check-label" for="soil-temp1">Soil Temperature (0-10cm)</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp2" checked/>
+                              <label class="form-check-label" for="soil-temp2">Soil Temperature (11-25cm)</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp3" checked/>
+                              <label class="form-check-label" for="soil-temp3">Soil Temperature (26-50cm)</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="soil-temp4" checked/>
+                              <label class="form-check-label" for="soil-temp4">Soil Temperature (50cm and above)</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="heat-flux" checked/>
+                              <label class="form-check-label" for="heat-flux">Sensible Heat Flux</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="pm2.5" checked/>
+                              <label class="form-check-label" for="pm2.5">P.M<sub>2.5</sub></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-4 d-flex justify-content-start my-1">
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="pm10" checked/>
+                              <label class="form-check-label" for="pm10">P.M<sub>10</sub></label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="co2" checked/>
+                              <label class="form-check-label" for="co2">CO<sub>2</sub></label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="co" checked/>
+                              <label class="form-check-label" for="co">CO</label>
+                            </div>
+                          </div>
+                          <div class="col-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="so2" checked/>
+                              <label class="form-check-label" for="so2">SO<sub>2</sub></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-auto my-5">
+                          <button data-mdb-ripple-init type="submit" class="btn btn-primary">Make Request</button>
+                        </div>
+                      </div>
+                
+                    </div>
+                
+                  </div>
+            </div>
+        
+            </div>
+        
+          </div>
+      </div>
+      
     </div>
-    <!-- End your project here-->
+    <!-- Tabs content -->
+          </div>
+    
+        </div>
+    
+      </div>
+    
 
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.umd.min.js"></script>
